@@ -34,7 +34,7 @@ Solve Exercise 3 here:
 
 game.difficulty = "Medium";
 console.log(game);
-console.log("================3=================");
+
 /*
 Exercise 4
 1. Select a starter Pokémon from the `pokemon` array. Remember, a starter Pokémon's `starter` property is true.
@@ -45,11 +45,11 @@ Solve Exercise 4 here:
 */
 
 
-const starterPokemon = pokemon.find(p => p.starter === true);
+const starterPokemon = pokemon[0]
 game.party.push(starterPokemon);
 
 console.log(game.party);
-console.log("================4=================");
+
 
 /*
 Exercise 5
@@ -61,20 +61,10 @@ Solve Exercise 5 here:
 */
 
 
-const waterPokemons = pokemon.filter(p => p.type === 'water');
-const firePokemons = pokemon.filter(p => p.type === 'fire');
-const highHpPokemons = pokemon.filter(p => p.hp > 50);
-
-const chosenPokemons = [
-    waterPokemons[0], 
-    firePokemons[0],  
-    highHpPokemons[0] 
-];
-
-chosenPokemons.forEach(pokemon => game.party.push(pokemon));
+game.party.push(pokemon[2])
 console.log(game.party);
  
-console.log("=====================chacke again =========================");
+
 
 
 /*
@@ -93,7 +83,7 @@ game.gyms.forEach(gym => {
 
 console.log(game.gyms);
 
-console.log("================6=================");
+
 /*
 Exercise 7
 1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
@@ -111,23 +101,18 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 7 here:
 */
 // Array of Pokémon objects with names and their evolution details
-let party = [
-  { id: 1, name: "Bulbasaur", evolvedForm: "Ivysaur" },
-  { id: 4, name: "Charmander", evolvedForm: "Charmeleon" },
-  { id: 7, name: "Squirtle", evolvedForm: "Wartortle" },
-  { id: 25, name: "Pikachu", evolvedForm: "Raichu" }
-];
-
-// Evolve each starter Pokémon in the party
-party.forEach(pokemon => {
-  pokemon.name = pokemon.evolvedForm;
-});
-
-// Print the updated party with evolved Pokémon
-party.forEach(pokemon => {
-  console.log(pokemon.name);
-});
-console.log("================7=================");
+let evolve
+const thePraty =game.party
+for (let i=0; i<thePraty.length; i++){
+  if (thePraty[i].starter){
+    for(let j=0; j<pokemon.length; j++){
+      if(thePraty[i].number === pokemon[j].number){
+        evolve = pokemon[j+1]
+      }
+    }
+    thePraty.splice(i,1,evolve)
+  }
+}
 /*
 Exercise 8
 1. Print the name of each Pokémon in your party.
@@ -138,7 +123,7 @@ Solve Exercise 8 here:
 
 game.party.forEach(pokemon => console.log(pokemon.name));
 
-console.log("================8=================");
+
 
 /*
 Exercise 9
@@ -151,7 +136,7 @@ Solve Exercise 9 here:
 
 const starterPokemonNames = pokemon.filter(pokemon => pokemon.starter).map(pokemon => pokemon.name);
 console.log(starterPokemonNames);
-console.log("================9=================");
+
 
 /*
 Exercise 10
@@ -169,7 +154,7 @@ game.catchPokemon = function(pokemonObj) {
   game.party.push(pokemonObj);
 };
 game.catchPokemon(pokemon[40]);
-console.log("================10=================");
+
 
 /*
 Exercise 11
@@ -193,7 +178,7 @@ game.catchPokemon = function(pokemonObj) {
 };
 game.catchPokemon(pokemon[50]);
 console.log(game.items);
-console.log("================11=================");
+
 
 /*
 Exercise 12
@@ -211,7 +196,7 @@ game.gyms.forEach(gym => {
   }
 });
 console.log(game.gyms);
-console.log("================12=================");
+
 
 /*
 Exercise 13
@@ -248,7 +233,7 @@ game.gymStatus = function() {
   console.log(gymTally);
 };
 game.gymStatus();
-console.log("================13=================");
+
 
 /*
 Exercise 14
@@ -266,7 +251,7 @@ game.partyCount = function() {
   return game.party.length;
 };
 console.log(game.partyCount());
-console.log("================14=================");
+
 
 /*
 Exercise 15
@@ -281,7 +266,7 @@ game.gyms.forEach(gym => {
     gym.completed = true;
   }
 });
-console.log("================ 15=================");
+
 
 /*
 Exercise 16
@@ -290,6 +275,6 @@ Exercise 16
 
 Solve Exercise 16 here:
 */
-console.log("================ 16=================");
+
 
 console.log(game);
