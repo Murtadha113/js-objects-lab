@@ -134,9 +134,13 @@ Exercise 9
 Solve Exercise 9 here:
 */
 
-const starterPokemonNames = pokemon.filter(pokemon => pokemon.starter).map(pokemon => pokemon.name);
-console.log(starterPokemonNames);
-
+const starterPokemo = []
+for (let i=0; i< pokemon.length; i++){
+  if (pokemon[i].starter){
+    starterPokemo.push(pokemon[i].name)
+  }
+}
+console.log(starterPokemo);
 
 /*
 Exercise 10
